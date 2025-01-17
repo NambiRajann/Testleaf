@@ -26,10 +26,10 @@ public class Text_box {
 
 		test_buttons obj = new test_buttons();
 		obj.home_page();
-	   obj.test_textbox();
+		obj.test_textbox();
 		
-		obj.test_list();
-		obj.test_buttons();
+		obj.test_list_method();
+		obj.test_buttons_method();
 	
 		
 		
@@ -39,10 +39,10 @@ public class Text_box {
 	public static void home_page()
 	{
 		driver.get("https://www.leafground.com/dashboard.xhtml");
-//		WebElement home_icon = driver.findElement(By.id("menuform:j_idt38"));
-//		home_icon.click();
-//		WebElement dashboard = driver.findElement(By.id("menuform:m_dashboard"));
-//        dashboard.click();
+		WebElement home_icon = driver.findElement(By.id("menuform:j_idt38"));
+		home_icon.click();
+		WebElement dashboard = driver.findElement(By.id("menuform:m_dashboard"));
+        dashboard.click();
 		
 	}
 

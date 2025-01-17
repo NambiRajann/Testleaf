@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 
 class automate_list extends Text_box {
 
-	public void test_list() {
+	public static void test_list_method() {
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 

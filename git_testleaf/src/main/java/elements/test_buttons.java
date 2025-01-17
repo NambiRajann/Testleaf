@@ -9,10 +9,11 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.devtools.v129.eventbreakpoints.EventBreakpoints;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.json.StaticInitializerCoercer;
 
 public class test_buttons extends automate_list {
 
-	public void test_buttons() {
+	public static  void test_buttons_method() {
 		
 		
 		//to open buttons page
