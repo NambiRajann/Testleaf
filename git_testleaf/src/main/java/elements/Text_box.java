@@ -24,13 +24,14 @@ public class Text_box {
 
 	{
 
-		test_checkbox obj = new test_checkbox();
+		Test_radiobuttons  obj = new  Test_radiobuttons();
 		obj.home_page();
 //		obj.test_textbox();
 //		
 //		obj.test_list_method();
 //		obj.test_buttons_method();
-		obj.test_checkbox_method();
+		//obj.test_checkbox_method();
+		obj.test_radiobuttons_method();
 	
 		
 		
