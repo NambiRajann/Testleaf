@@ -9,7 +9,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-class automate_list extends Text_box {
+class automate_list extends Buttons_Demo  {
 
 	public static void test_list_method() {
 
