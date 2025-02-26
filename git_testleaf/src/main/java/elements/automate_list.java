@@ -6,16 +6,23 @@ import java.util.concurrent.TimeUnit;
 import org.checkerframework.checker.index.qual.LengthOf;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
-class automate_list extends Buttons_Demo  {
+class automate_list extends Home_page  {
 
-	public static void test_list_method() {
-
+	
+	@Test(priority = 3)
+	public static void List_demo() {
+		 WebDriver driver = new ChromeDriver();
+		 driver.get("https://www.leafground.com/dashboard.xhtml");
+	
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-		WebElement elements_icon = driver.findElement(By.id("menuform:j_idt40"));
+		WebElement elements_icon = driver.findElement((By.xpath("//*[@id=\"menuform\"]/child::ul/li[3]")));
 		elements_icon.click();
 
 		WebElement dropdown_icon = driver.findElement(By.id("menuform:m_dropdown"));
@@ -24,19 +31,22 @@ class automate_list extends Buttons_Demo  {
 		// Which is your favorite UI Automation tool?
 		WebElement fav_uiElement = driver.findElement(By.className("ui-selectonemenu"));
 		Select dropdown = new Select(fav_uiElement);
-		dropdown.selectByIndex(1);
+		dropdown.selectByVisibleText("Selenium");
 
 		// Choose your preferred country.
-		WebElement country = driver.findElement(By.xpath("//*[@id='j_idt87:country_label']"));
-		country.click();
-		List<WebElement> country_list = driver.findElements(By.xpath("//*[@id='j_idt87:country_panel']/div/ul/li"));
-		for (WebElement i : country_list) {
-			if (i.getText().equalsIgnoreCase("Brazil")) {
-				i.click();
+		driver.findElement(By.xpath("//*[@id=\"j_idt87:country_label\"]")).click();
+		List<WebElement> country_list = driver.findElements(By.xpath("//*[@id='j_idt87:country_panel']/descendant::li"));
 
-			}
+		
 
-		}
+				for (WebElement i : country_list) {
+					System.out.println(i.getText());
+					if (i.getText().equalsIgnoreCase("Brazil")) {
+						i.click();
+		
+					}
+		
+				}
 
 		// Confirm Cities belongs to Country is loaded
 		WebElement city = driver.findElement(By.xpath("//label[@id='j_idt87:city_label']"));
@@ -50,7 +60,7 @@ class automate_list extends Buttons_Demo  {
 
 		List<WebElement> city_list = driver.findElements(By.xpath("//*[@id='j_idt87:city_panel']/div/ul/li"));
 		for (WebElement j : city_list) {
-			if (j.getText().equalsIgnoreCase("salvador")) {
+			if (j.getText().equalsIgnoreCase("Rio de Janerio")) {
 				j.click();
 
 			}
@@ -74,7 +84,7 @@ class automate_list extends Buttons_Demo  {
 
 		List<WebElement> language_list = driver.findElements(By.xpath("//*[@id='j_idt87:lang_panel']/div/ul/li"));
 		for (WebElement x : language_list) {
-			if (x.getText().equalsIgnoreCase("tamil")) {
+			if (x.getText().equalsIgnoreCase("malayalam")) {
 				x.click();
 
 			}
@@ -96,7 +106,7 @@ class automate_list extends Buttons_Demo  {
 
 			for (WebElement x : more_language_list) {
 
-				if (x.getText().equals("ஒன்று")) {
+				if (x.getText().equals("ഒന്ന്")) {
 					x.click();
 
 				}
@@ -111,7 +121,7 @@ class automate_list extends Buttons_Demo  {
 
 			for (WebElement x : more_language_list1) {
 
-				if (x.getText().equals("ஒன்று")) {
+				if (x.getText().equals("ഒന്ന്")) {
 					x.click();
 
 				}
@@ -120,7 +130,7 @@ class automate_list extends Buttons_Demo  {
 
 		}
 
-		home_page();
+
 
 	}
 

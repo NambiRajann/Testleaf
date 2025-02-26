@@ -6,31 +6,34 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.v129.eventbreakpoints.EventBreakpoints;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.json.StaticInitializerCoercer;
+import org.testng.annotations.Test;
 
-public class Buttons_Demo extends Textbox_Demo {
+public class Buttons_Demo extends Home_page {
+	@Test(priority = 2, groups = "buttons")
+	public static void Buttons_Demo() {
 
-	public static  void Buttons_Demo() {
-		
-		
-		//to open buttons page
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/dashboard.xhtml");
+		// to open buttons page
 
-		WebElement elements_icon = driver.findElement(By.id("menuform:j_idt40"));
+		WebElement elements_icon = driver.findElement(By.xpath("//*[@id=\"menuform\"]/child::ul/li[3]"));
 		elements_icon.click();
-        WebElement button_icon = driver.findElement(By.id("menuform:m_button"));
+		WebElement button_icon = driver.findElement(By.id("menuform:m_button"));
 		button_icon.click();
 
-		//get title
+		// get title
 		driver.findElement(By.id("j_idt88:j_idt90")).click();
 		System.err.println(driver.getTitle());
-	
-		
+
 		// return back to button page
 		driver.navigate().back();
-		
+
 		// confirm the button is disabled
 		Boolean disable = driver.findElement(By.id("j_idt88:j_idt90")).isEnabled();
 		System.out.println("disable");

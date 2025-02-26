@@ -12,43 +12,31 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.v129.domsnapshot.model.TextBoxSnapshot;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
 
 import net.bytebuddy.agent.builder.AgentBuilder.CircularityLock.Global;
 
-public class Textbox_Demo {
+public class Textbox_Demo extends Home_page {
 
-	static WebDriver driver = new ChromeDriver();
+	WebDriver driver = new ChromeDriver();
 
-	public static void main(String[] args)
+	@Test(priority = 1)
+	public void Textbox_Demo() {
 
-	{
-
-		Wait_Demo obj = new Wait_Demo();
-		obj.home_page();
-		obj.Wait_Demo();
-
-	}
-
-	public static void home_page() {
-		driver.get("https://www.leafground.com/dashboard.xhtml");
-//		WebElement home_icon = driver.findElement(By.id("menuform:j_idt38"));
-//		home_icon.click();
-//		WebElement dashboard = driver.findElement(By.id("menuform:m_dashboard"));
-//        dashboard.click();
-//		
-	}
-
-	public void test_textbox() {
-
+		driver.get("https://www.leafground.com/input.xhtml;jsessionid=node0s7e2lqh88y431cyymrnwri7j18770251.node0");
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		Actions action = new Actions(driver);
 
-		// To click the elements icon
-		WebElement elements_icon = driver.findElement(By.id("menuform:j_idt40"));
-		elements_icon.click();
-
-		// TO open text box page
-		WebElement texboxElement = driver.findElement(By.id("menuform:m_input"));
-		texboxElement.click();
+//		// To click the elements icon
+//		WebElement elements_icon = driver.findElement(By.xpath("//*[@id=\"menuform\"]/child::ul/li[3]"));
+//		elements_icon.click();
+//
+//		// TO open text box page
+//		WebElement texboxElement = driver.findElement(By.id("menuform:m_input"));
+//		texboxElement.click();
 
 		// To enter the name
 		WebElement name = driver.findElement(By.id("j_idt88:name"));
@@ -95,8 +83,10 @@ public class Textbox_Demo {
 
 		dropdownElement.sendKeys("num");
 
-		driver.findElement(By.xpath("//li[contains(text(),3)]")).click();
+		WebElement s = driver.findElement(
+				By.xpath("//*[@id='j_idt106:auto-complete_panel']/descendant::li[4]"));
 
+		action.moveToElement(s).click().build().perform();
 		// choose the date and confirm
 
 		WebElement date = driver.findElement(By.id("j_idt106:j_idt116_input"));
@@ -109,12 +99,9 @@ public class Textbox_Demo {
 		WebElement number = driver.findElement(By.id("j_idt106:j_idt118_input"));
 		number.sendKeys("3");
 
-		WebElement spinElement = driver.findElement(By.xpath(
-				"//a[@class='ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only']"));
+		WebElement spinElement = driver.findElement(By.xpath("//*[@id='j_idt106:j_idt118']/a[2]/span"));
 		spinElement.click();
 		number.getAttribute("value");
-
-		home_page();
 
 	}
 
