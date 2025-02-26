@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Testleaf" parallel="classes" thread-count="6">
+	<parameter name="name" value="nambi"></parameter>
+	<test name="elements">
+		<!-- <groups>
+			<run>
+
+				<include name="buttons" />
+
+			</run>
+		</groups> -->
+		<classes>
+
+
+
+			<class name="elements.Textbox_Demo"></class>
+			<!--  <class name = "elements.Buttons_Demo"></class> 
+			 <class name = "elements.automate_list"></class> 
+			<class name = "elements.Checkbox_Demo"></class>
+			<class name = "elements.Radiobuttons_Demo"></class>
+			<class name = "elements.Wait_Demo"></class>
+			 -->
+
+		</classes>
+	</test>
+</suite> 
